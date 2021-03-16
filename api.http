@@ -1,0 +1,4 @@
+# Docs
+# https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+
+GET http://localhost:8080/ping
