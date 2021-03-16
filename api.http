@@ -1,4 +1,16 @@
-# Docs
-# https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+# Docs https://marketplace.visualstudio.com/items?itemName=humao.rest-client
 
 GET http://localhost:8080/ping
+
+###
+
+GET http://localhost:8080/lists
+
+###
+
+POST http://localhost:8080/lists
+content-type: application/json
+
+{
+    "name": "new list"
+}

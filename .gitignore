@@ -104,4 +104,3 @@ dist
 .tern-port
 
 .postgres-data/*
-!.postgres-data/.keep
