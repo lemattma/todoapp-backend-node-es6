@@ -19,6 +19,14 @@ app.get("/lists", (_, res) =>
     )
 );
 
+app.get("/lists/:id", (req, res) =>
+    List.where({ id: req.params.id }).fetch().then(list =>
+        res.json(list.toJSON())
+    ).catch(err =>
+        res.status(500).json({ error: err })
+    )
+);
+
 app.post("/lists", (req, res) =>
     List.forge({ name: req.body.name }).save()
         .then(list => res.status(201).json(list))
