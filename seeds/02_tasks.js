@@ -12,6 +12,9 @@ exports.seed = function(knex) {
         {id: 5, list_id: 2, name: 'Send proposal'},
         // {id: 3, name: 'Learning'}
         {id: 6, list_id: 3, name: 'Todoapp project planning'}
-      ]);
+      ])
+      .then(() => {
+        return knex.raw('SELECT setval(\'tasks_id_seq\',(SELECT MAX(id) from "tasks"))')
+      });
     });
 };

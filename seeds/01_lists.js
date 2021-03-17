@@ -6,6 +6,9 @@ exports.seed = function(knex) {
         {id: 1, name: 'Life'},
         {id: 2, name: 'Work'},
         {id: 3, name: 'Learning'}
-      ]);
+      ])
+      .then(() => {
+        return knex.raw('SELECT setval(\'lists_id_seq\',(SELECT MAX(id) from "lists"))')
+      });
     });
 };
