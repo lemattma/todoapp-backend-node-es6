@@ -18,3 +18,14 @@ content-type: application/json
 {
     "name": "new list"
 }
+
+###
+
+POST http://localhost:8080/tasks
+content-type: application/json
+
+{
+    "name": "new task",
+    "description": "a task",
+    "list_id": 1
+}

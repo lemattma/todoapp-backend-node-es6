@@ -1,8 +1,11 @@
-const List = require('./models/list')
 require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors');
+
+const List = require('./models/list')
+const Task = require('./models/task');
+
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -32,6 +35,16 @@ app.post("/lists", (req, res) =>
         .then(list => res.status(201).json(list))
         .catch(err => res.status(400).json({error: err}))
 
+);
+
+app.post("/tasks", (req, res) =>
+    Task.forge({
+        name: req.body.name,
+        description: req.body.description,
+        list_id: req.body.list_id
+    }).save()
+        .then(task => res.status(201).json(task))
+        .catch(err => res.status(400).json({error: err}))
 );
 
 app.listen(process.env.PORT, () => console.log(`Server is running`));
