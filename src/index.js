@@ -20,7 +20,7 @@ app.get("/lists", (_, res) =>
 );
 
 app.get("/lists/:id", (req, res) =>
-    List.where({ id: req.params.id }).fetch().then(list =>
+    List.where({ id: req.params.id }).fetch({withRelated: ['tasks']}).then(list =>
         res.json(list.toJSON())
     ).catch(err =>
         res.status(500).json({ error: err })

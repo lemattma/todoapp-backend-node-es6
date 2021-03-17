@@ -8,6 +8,10 @@ GET http://localhost:8080/lists
 
 ###
 
+GET http://localhost:8080/lists/1
+
+###
+
 POST http://localhost:8080/lists
 content-type: application/json
 
