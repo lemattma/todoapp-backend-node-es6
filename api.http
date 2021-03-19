@@ -12,12 +12,20 @@ GET http://localhost:8080/lists/1
 
 ###
 
+DELETE http://localhost:8080/lists/1
+
+###
+
 POST http://localhost:8080/lists
 content-type: application/json
 
 {
     "name": "new list"
 }
+
+###
+
+DELETE http://localhost:8080/tasks/1
 
 ###
 
